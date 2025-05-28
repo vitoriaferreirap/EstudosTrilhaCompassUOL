@@ -1,4 +1,4 @@
-package atividadesFuncoes;
+package atividadeFuncoes;
 
 import java.util.Scanner;
 

@@ -1,0 +1,14 @@
+Classe: Retangulo
+
++-----------------------------+
+|         Retangulo           |
++-----------------------------+
+| - width: double             |
+| - height: double            |
++-----------------------------+
+| + Retangulo(width, height)  |
+| + Area(): double            |
+| + Perimetro(): double       |
+| + Diagonal(): double        |
+| + toString(): String        |
++-----------------------------+

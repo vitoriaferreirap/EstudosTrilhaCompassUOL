@@ -1,6 +1,6 @@
 package atividadesStrings;
 
-public class atividade_2 {
+public class Atividade_2 {
   public static void main(String[] args) {
     //operação split  
     String frase = "Hoje é um dia lindo";

@@ -2,7 +2,7 @@ package atividadesWhile;
 
 import java.util.Scanner;
 
-public class atividade_2 {
+public class Atividade_2 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 

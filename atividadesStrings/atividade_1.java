@@ -1,6 +1,6 @@
 package atividadesStrings;
 
-public class atividade_1 {
+public class Atividade_1 {
   public static void main(String[] args) {
     
     String original = " abcd FGHI jklm abc NOPQ ";

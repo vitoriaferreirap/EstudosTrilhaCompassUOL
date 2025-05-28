@@ -2,7 +2,7 @@ package atividadesFor;
 
 import java.util.Scanner;
 
-public class atividade_3 {
+public class Atividade_3 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
