@@ -11,7 +11,7 @@ public class Atividade_3 {
     n = scanner.nextInt();
     System.out.println("Digite três valores decimais:");
     
-    for (int i = 0; i < 3; i++) { //cada loop é uma linha 
+    for (int i = 0; i < n; i++) { //cada loop é uma linha 
       double a = scanner.nextDouble();
       double b = scanner.nextDouble();
       double c = scanner.nextDouble();
