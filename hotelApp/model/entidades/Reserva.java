@@ -39,9 +39,19 @@ public class Reserva {
 
     }
 
-    public void atualizarDatas(Date checkIn, Date checkOut) {
+    // se tiver um erro, ira retornar uma mensagem de erro
+    public String atualizarDatas(Date checkIn, Date checkOut) {
+        Date agora = new Date(); // data atual
+        if (checkIn.before(agora) || checkOut.before(agora)) {
+            return "Erro: As datas de check-in e check-out devem ser futuras.";
+        }
+        if (!checkOut.after(checkIn)) {
+            return "Erro: A data de check-out deve ser posterior à data de check-in.";
+        }
+        // se não tiver erro, atualiza as datas
         this.checkIn = checkIn;
         this.checkOut = checkOut;
+        return null; // retorno de operação sem erro.
     }
 
     @Override
