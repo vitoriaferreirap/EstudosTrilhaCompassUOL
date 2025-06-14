@@ -3,6 +3,8 @@ package hotelApp.model.entidades;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import hotelApp.model.exception.DominioException;
+
 public class Reserva {
     private int numeroQuarto;
     private Date checkIn;
@@ -11,7 +13,13 @@ public class Reserva {
     // statico pois precisamos apenas de uma instância de SimpleDateFormat
     private static SimpleDateFormat formaDaData = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Reserva(int numeroQuarto, Date checkIn, Date checkOut) {
+    public Reserva(int numeroQuarto, Date checkIn, Date checkOut) throws DominioException {
+
+        // programação defenciva
+        if (!checkOut.after(checkIn)) {
+            throw new DominioException("Erro: A data de check-out deve ser posterior à data de check-in.");
+        }
+
         this.numeroQuarto = numeroQuarto;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -39,19 +47,19 @@ public class Reserva {
 
     }
 
-    // se tiver um erro, ira retornar uma mensagem de erro
-    public String atualizarDatas(Date checkIn, Date checkOut) {
+    public void atualizarDatas(Date checkIn, Date checkOut) throws DominioException {
         Date agora = new Date(); // data atual
+        // exceção lancaça
         if (checkIn.before(agora) || checkOut.before(agora)) {
-            return "Erro: As datas de check-in e check-out devem ser futuras.";
+            throw new DominioException("Erro: As datas de check-in e check-out devem ser futuras.");
         }
         if (!checkOut.after(checkIn)) {
-            return "Erro: A data de check-out deve ser posterior à data de check-in.";
+            throw new DominioException("Erro: A data de check-out deve ser posterior à data de check-in.");
         }
         // se não tiver erro, atualiza as datas
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        return null; // retorno de operação sem erro.
+
     }
 
     @Override
