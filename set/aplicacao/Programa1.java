@@ -1,4 +1,4 @@
-package Set.aplicacao;
+package set.aplicacao;
 
 import java.util.Set;
 import java.util.TreeSet;
