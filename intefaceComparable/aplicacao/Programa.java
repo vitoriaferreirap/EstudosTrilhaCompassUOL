@@ -7,25 +7,29 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import intefaceComparable.entidades.Funcionarios;
+
 public class Programa {
     public static void main(String[] args) {
         /*
-         * Programa para ler um arquivo contendo nomes de pessoas(nome por linha)
-         * armazenalos em uma lista, ordenar essa lista e imprimir os nomes ordenados.
+         * Ler arquivo contendo funcionarios(nome e salarios) no formato .cvs(separado
+         * por vírgula) e imprimir os nomes ordenados alfabeticamente.
          */
-        List<String> lista = new ArrayList<>();
+        List<Funcionarios> lista = new ArrayList<>();
         String path = ("C:\\Users\\Vitoria Ferreira\\Documents\\arquivo.txt");
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            String nome = br.readLine();
-            while (nome != null) { // enquanto diferente de nulo add nomes
-                lista.add(nome);
-                nome = br.readLine();
+            String funcionarioCsv = br.readLine();
+            while (funcionarioCsv != null) { // enquanto diferente de nulo add nomes
+
+                String[] campos = funcionarioCsv.split(","); // separa os campos por vírgula
+                lista.add(new Funcionarios(campos[0], Double.parseDouble(campos[1])));
+                funcionarioCsv = br.readLine();
             }
 
             Collections.sort(lista); // ordena a lista
-            for (String s : lista) {
-                System.out.println(s); // imprime os nomes ordenados
+            for (Funcionarios f : lista) {
+                System.out.println(f.getNome() + ", " + f.getSalario());
             }
 
         } catch (IOException e) {
