@@ -6,6 +6,7 @@ import java.util.Scanner;
 import inteface.entidades.Contrato;
 import inteface.entidades.Parcelamento;
 import inteface.servicos.ContratoServico;
+import inteface.servicos.PaypalServico;
 
 public class Programa {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class Programa {
         int numeroParcelas = scanner.nextInt();
 
         // instanciar e conectar com serviços
-        ContratoServico contratoServico = new ContratoServico(null);
+        ContratoServico contratoServico = new ContratoServico(new PaypalServico());
         // processar o contrato
         contratoServico.processarContrato(contrato, numeroParcelas);
 
