@@ -1,4 +1,4 @@
-package interfacesFuncionais.interfacePredicate.entidades;
+package interfacesFuncionais.interfaceConsumer.entidades;
 
 public class Produto {
     private String nome;
